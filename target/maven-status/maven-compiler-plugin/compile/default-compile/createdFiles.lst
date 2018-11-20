@@ -1,0 +1,4 @@
+com\tydic\xinjiang\websocket\config\WebSocketConfig.class
+com\tydic\xinjiang\websocket\domain\SocketMessage.class
+com\tydic\xinjiang\Application.class
+com\tydic\xinjiang\websocket\pagewebsocket\WebSocket.class

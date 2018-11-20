@@ -1,0 +1,4 @@
+com\tydic\xinjiang\kafka\ConsumeTest.class
+com\tydic\xinjiang\redis\TestSingleRedis.class
+com\tydic\xinjiang\kafka\ProduceTest.class
+com\tydic\xinjiang\redis\Student.class

@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------------
+Test set: com.tydic.xinjiang.redis.TestSingleRedis
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 14.478 s <<< FAILURE! - in com.tydic.xinjiang.redis.TestSingleRedis
+testMap(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.046 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testMap(TestSingleRedis.java:92)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testMap(TestSingleRedis.java:92)
+
+testSet(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.05 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testSet(TestSingleRedis.java:139)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testSet(TestSingleRedis.java:139)
+
+testShard(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.02 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShard(TestSingleRedis.java:210)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShard(TestSingleRedis.java:210)
+
+testTrans(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.05 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testTrans(TestSingleRedis.java:169)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testTrans(TestSingleRedis.java:169)
+
+testJson(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.023 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testJson(TestSingleRedis.java:54)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testJson(TestSingleRedis.java:54)
+
+testList(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.024 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testList(TestSingleRedis.java:117)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testList(TestSingleRedis.java:117)
+
+testShardPool(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 2.023 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisException: Could not get a resource from the pool
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShardPool(TestSingleRedis.java:230)
+Caused by: java.util.NoSuchElementException: Unable to validate object
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShardPool(TestSingleRedis.java:230)
+
+testShardpipelined(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.046 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShardpipelined(TestSingleRedis.java:221)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testShardpipelined(TestSingleRedis.java:221)
+
+testPipelineTrans(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.04 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testPipelineTrans(TestSingleRedis.java:196)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testPipelineTrans(TestSingleRedis.java:196)
+
+testRLpush(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.027 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testRLpush(TestSingleRedis.java:156)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testRLpush(TestSingleRedis.java:156)
+
+testString(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.032 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testString(TestSingleRedis.java:71)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testString(TestSingleRedis.java:71)
+
+testPipelined(com.tydic.xinjiang.redis.TestSingleRedis)  Time elapsed: 1.022 s  <<< ERROR!
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testPipelined(TestSingleRedis.java:184)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at com.tydic.xinjiang.redis.TestSingleRedis.testPipelined(TestSingleRedis.java:184)
+

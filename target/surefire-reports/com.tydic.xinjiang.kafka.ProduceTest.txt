@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.tydic.xinjiang.kafka.ProduceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in com.tydic.xinjiang.kafka.ProduceTest
+produce(com.tydic.xinjiang.kafka.ProduceTest)  Time elapsed: 0 s  <<< ERROR!
+org.apache.kafka.common.config.ConfigException: Invalid value org.apache.kafka.com.tydic.xinjiang.common.serialization.StringSerializer for configuration key.serializer: Class org.apache.kafka.com.tydic.xinjiang.common.serialization.StringSerializer could not be found.
+	at com.tydic.xinjiang.kafka.ProduceTest.connectionKafka(ProduceTest.java:40)
+	at com.tydic.xinjiang.kafka.ProduceTest.produce(ProduceTest.java:35)
+
+produce(com.tydic.xinjiang.kafka.ProduceTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.tydic.xinjiang.kafka.ProduceTest.destroy(ProduceTest.java:55)
+

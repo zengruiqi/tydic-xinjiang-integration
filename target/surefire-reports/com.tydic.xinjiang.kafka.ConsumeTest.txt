@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.tydic.xinjiang.kafka.ConsumeTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.2 s <<< FAILURE! - in com.tydic.xinjiang.kafka.ConsumeTest
+consume(com.tydic.xinjiang.kafka.ConsumeTest)  Time elapsed: 0.12 s  <<< ERROR!
+org.apache.kafka.common.config.ConfigException: Invalid value org.apache.kafka.com.tydic.xinjiang.common.serialization.StringDeserializer for configuration key.deserializer: Class org.apache.kafka.com.tydic.xinjiang.common.serialization.StringDeserializer could not be found.
+	at com.tydic.xinjiang.kafka.ConsumeTest.connectionKafka(ConsumeTest.java:36)
+	at com.tydic.xinjiang.kafka.ConsumeTest.consume(ConsumeTest.java:30)
+
