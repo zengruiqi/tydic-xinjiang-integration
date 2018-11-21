@@ -6,12 +6,13 @@ import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ServerEndpoint(value = "/com/tydic/xinjiang/websocket")
 @Component    //此注解千万千万不要忘记，它的主要作用就是将这个监听器纳入到Spring容器中进行管理
 public class WebSocket {
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
-    private static int onlineCount = 0;
+    private static AtomicInteger onlineCount = new AtomicInteger(0);
 
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
     private static CopyOnWriteArraySet<WebSocket> webSocketSet = new CopyOnWriteArraySet<WebSocket>();
@@ -93,15 +94,15 @@ public class WebSocket {
         }
     }
 
-    public static synchronized int getOnlineCount() {
+    public static synchronized AtomicInteger getOnlineCount() {
         return onlineCount;
     }
 
     public static synchronized void addOnlineCount() {
-        WebSocket.onlineCount++;
+        WebSocket.onlineCount.getAndIncrement();
     }
 
     public static synchronized void subOnlineCount() {
-        WebSocket.onlineCount--;
+        WebSocket.onlineCount.getAndDecrement();
     }
 }
