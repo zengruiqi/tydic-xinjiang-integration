@@ -1,5 +1,6 @@
 package com.tydic.xinjiang.websocket.pagewebsocket;
 
+import com.tydic.xinjiang.common.enumconstant.ServerEndpointValue;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -8,14 +9,15 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@ServerEndpoint(value = "/com/tydic/xinjiang/websocket")
-@Component    //此注解千万千万不要忘记，它的主要作用就是将这个监听器纳入到Spring容器中进行管理
-public class WebSocket {
-    //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
+@ServerEndpoint(value = ServerEndpointValue.COM_TYDIC_XINJIANG_WEBSOCKET)
+@Component  //将这个监听器纳入到Spring容器中进行管理
+public class PageOneWebSocket {
+
+    //静态变量，用来记录当前在线连接数
     private static AtomicInteger onlineCount = new AtomicInteger(0);
 
-    //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
-    private static CopyOnWriteArraySet<WebSocket> webSocketSet = new CopyOnWriteArraySet<WebSocket>();
+    //concurrent包的线程安全Set，用来存放同一个页面对应的WebSocket对象集
+    private static CopyOnWriteArraySet<PageOneWebSocket> pageOneWebSocketSet = new CopyOnWriteArraySet<PageOneWebSocket>();
 
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
@@ -26,9 +28,9 @@ public class WebSocket {
     @OnOpen
     public void onOpen(Session session) {
         this.session = session;
-        webSocketSet.add(this);     //加入set中
+        pageOneWebSocketSet.add(this);     //加入set中
         addOnlineCount();           //在线数加1
-        System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
+        System.out.println("有新连接加入！当前访问" + ServerEndpointValue.COM_TYDIC_XINJIANG_WEBSOCKET + "的人数为" + getOnlineCount());
         try {
             sendMessage("Hello world");
         } catch (IOException e) {
@@ -41,9 +43,9 @@ public class WebSocket {
      */
     @OnClose
     public void onClose() {
-        webSocketSet.remove(this);  //从set中删除
+        pageOneWebSocketSet.remove(this);  //从set中删除
         subOnlineCount();           //在线数减1
-        System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
+        System.out.println("有一连接关闭！当前访问" + ServerEndpointValue.COM_TYDIC_XINJIANG_WEBSOCKET + "的人数为" + getOnlineCount());
     }
 
     /**
@@ -56,7 +58,7 @@ public class WebSocket {
         System.out.println("来自客户端的消息:" + message);
 
         //群发消息
-        for (WebSocket item : webSocketSet) {
+        for (PageOneWebSocket item : pageOneWebSocketSet) {
             try {
                 item.sendMessage(message);
             } catch (IOException e) {
@@ -82,10 +84,10 @@ public class WebSocket {
 
 
     /**
-     * 群发自定义消息
+     * 群发自定义消息，推送消息到页面
      */
     public static void sendInfo(String message) throws IOException {
-        for (WebSocket item : webSocketSet) {
+        for (PageOneWebSocket item : pageOneWebSocketSet) {
             try {
                 item.sendMessage(message);
             } catch (IOException e) {
@@ -99,10 +101,10 @@ public class WebSocket {
     }
 
     public static synchronized void addOnlineCount() {
-        WebSocket.onlineCount.getAndIncrement();
+        PageOneWebSocket.onlineCount.getAndIncrement();
     }
 
     public static synchronized void subOnlineCount() {
-        WebSocket.onlineCount.getAndDecrement();
+        PageOneWebSocket.onlineCount.getAndDecrement();
     }
 }
